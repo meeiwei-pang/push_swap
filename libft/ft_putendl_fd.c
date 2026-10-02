@@ -1,45 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:25:26 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:05:36 by ibishak          ###   ########.fr       */
+/*   Created: 2026/08/03 15:12:22 by ibishak           #+#    #+#             */
+/*   Updated: 2026/10/02 08:01:54 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <unistd.h>
 
-void	free_split(char **split)
+void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
-	if (!split)
-		return ;
 	i = 0;
-	while (split[i])
+	while (s[i])
 	{
-		free(split[i]);
+		write(fd, &s[i], 1);
 		i++;
 	}
-	free(split);
-}
-
-void	free_stack(t_node **stack)
-{
-	t_node	*temp;
-	t_node	*current;
-
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-	*stack = NULL;
+	write(fd, "\n", 1);
 }

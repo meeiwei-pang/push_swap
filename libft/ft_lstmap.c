@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:25:26 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:05:36 by ibishak          ###   ########.fr       */
+/*   Created: 2026/08/06 11:24:42 by ibishak           #+#    #+#             */
+/*   Updated: 2026/10/02 07:59:50 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_split(char **split)
+t_node	*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	i;
+	t_node	*new_lst;
+	t_node	*node;
+	void	*content;
 
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
+	if (!lst)
+		return (NULL);
+	new_lst = NULL;
+	while (lst)
 	{
-		free(split[i]);
-		i++;
+		content = f(lst->content);
+		node = ft_lstnew(content);
+		if (!node)
+		{
+			del(content);
+			ft_lstclear(&new_lst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_lst, node);
+		lst = lst->next;
 	}
-	free(split);
-}
-
-void	free_stack(t_node **stack)
-{
-	t_node	*temp;
-	t_node	*current;
-
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-	*stack = NULL;
+	return (new_lst);
 }

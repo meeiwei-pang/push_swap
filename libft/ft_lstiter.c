@@ -1,45 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:25:26 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:05:36 by ibishak          ###   ########.fr       */
+/*   Created: 2026/08/06 11:07:49 by ibishak           #+#    #+#             */
+/*   Updated: 2026/10/02 07:59:19 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_split(char **split)
+void	ft_lstiter(t_node *lst, void (*f)(void *))
 {
-	int	i;
-
-	if (!split)
+	if (!f || !lst)
 		return ;
-	i = 0;
-	while (split[i])
+	while (lst)
 	{
-		free(split[i]);
-		i++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	free(split);
-}
-
-void	free_stack(t_node **stack)
-{
-	t_node	*temp;
-	t_node	*current;
-
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-	*stack = NULL;
 }

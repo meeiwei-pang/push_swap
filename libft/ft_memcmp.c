@@ -1,45 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:25:26 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:05:36 by ibishak          ###   ########.fr       */
+/*   Created: 2026/08/05 09:26:46 by ibishak           #+#    #+#             */
+/*   Updated: 2026/10/02 08:01:29 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_split(char **split)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	int	i;
+	unsigned char	*s1;
+	unsigned char	*s2;
+	size_t			i;
 
-	if (!split)
-		return ;
+	s1 = (unsigned char *)str1;
+	s2 = (unsigned char *)str2;
 	i = 0;
-	while (split[i])
+	while (i < n)
 	{
-		free(split[i]);
+		if (s1[i] != s2[i] && (s1[i] || s2[i]))
+			return (s1[i] - s2[i]);
 		i++;
 	}
-	free(split);
+	return (0);
 }
 
-void	free_stack(t_node **stack)
-{
-	t_node	*temp;
-	t_node	*current;
-
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-	*stack = NULL;
-}

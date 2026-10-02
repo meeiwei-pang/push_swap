@@ -1,45 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:25:26 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:05:36 by ibishak          ###   ########.fr       */
+/*   Created: 2026/07/29 14:23:44 by ibishak           #+#    #+#             */
+/*   Updated: 2026/10/02 08:02:47 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_split(char **split)
+char	*ft_strrchr(const char *str, int ch)
 {
-	int	i;
+	char	*last_pos;
 
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
+	last_pos = NULL;
+	while (*str)
 	{
-		free(split[i]);
-		i++;
+		if (*str == (char)ch)
+			last_pos = (char *)str;
+		str++;
 	}
-	free(split);
-}
-
-void	free_stack(t_node **stack)
-{
-	t_node	*temp;
-	t_node	*current;
-
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-	*stack = NULL;
+	if ((char)ch == '\0')
+		last_pos = (char *)str;
+	return (last_pos);
 }

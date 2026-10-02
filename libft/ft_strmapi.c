@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:25:26 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:05:36 by ibishak          ###   ########.fr       */
+/*   Created: 2026/08/04 17:06:51 by ibishak           #+#    #+#             */
+/*   Updated: 2026/10/02 08:02:34 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_split(char **split)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	unsigned int	len;
+	unsigned int	i;
+	char			*result;
 
-	if (!split)
-		return ;
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	result = malloc(len + 1);
+	if (!result)
+		return (NULL);
 	i = 0;
-	while (split[i])
+	while (i < len)
 	{
-		free(split[i]);
+		result[i] = f(i, s[i]);
 		i++;
 	}
-	free(split);
+	result[len] = '\0';
+	return (result);
 }
 
-void	free_stack(t_node **stack)
-{
-	t_node	*temp;
-	t_node	*current;
-
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-	*stack = NULL;
-}

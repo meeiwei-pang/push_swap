@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:25:26 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:05:36 by ibishak          ###   ########.fr       */
+/*   Created: 2026/07/29 10:54:36 by ibishak           #+#    #+#             */
+/*   Updated: 2026/10/02 08:01:42 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_split(char **split)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	int	i;
+	unsigned char		*d;
+	const unsigned char	*s;
+	size_t				i;
 
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	if (d <= s)
 	{
-		free(split[i]);
-		i++;
+		i = 0;
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
 	}
-	free(split);
-}
-
-void	free_stack(t_node **stack)
-{
-	t_node	*temp;
-	t_node	*current;
-
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
+	else
 	{
-		temp = current->next;
-		free(current);
-		current = temp;
+		while (n--)
+			d[n] = s[n];
 	}
-	*stack = NULL;
+	return (dst);
 }

@@ -1,45 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:25:26 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:05:36 by ibishak          ###   ########.fr       */
+/*   Created: 2026/07/28 12:01:21 by ibishak           #+#    #+#             */
+/*   Updated: 2026/10/02 08:01:59 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_split(char **split)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
+	char	*print;
+	long	num;
 
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
+	num = n;
+	print = "0123456789";
+	if (num < 0)
 	{
-		free(split[i]);
-		i++;
+		num = -num;
+		write(fd, "-", 1);
 	}
-	free(split);
-}
-
-void	free_stack(t_node **stack)
-{
-	t_node	*temp;
-	t_node	*current;
-
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-	*stack = NULL;
+	if (num >= 10)
+		ft_putnbr_fd(num / 10, fd);
+	write(fd, &print[num % 10], 1);
 }

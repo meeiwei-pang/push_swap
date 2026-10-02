@@ -1,45 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:25:26 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:05:36 by ibishak          ###   ########.fr       */
+/*   Created: 2026/07/28 12:18:47 by ibishak           #+#    #+#             */
+/*   Updated: 2026/10/02 08:02:22 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_split(char **split)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
+	size_t	src_len;
+	size_t	dst_len;
+	size_t	i;
 
-	if (!split)
-		return ;
+	src_len = ft_strlen(src);
+	dst_len = ft_strlen(dst);
 	i = 0;
-	while (split[i])
+	if (dst_len >= size)
+		return (size + src_len);
+	while (src[i] && i < (size - dst_len - 1))
 	{
-		free(split[i]);
+		dst[dst_len + i] = src[i];
 		i++;
 	}
-	free(split);
-}
-
-void	free_stack(t_node **stack)
-{
-	t_node	*temp;
-	t_node	*current;
-
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-	*stack = NULL;
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }

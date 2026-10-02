@@ -1,45 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:25:26 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:05:36 by ibishak          ###   ########.fr       */
+/*   Created: 2026/07/27 12:30:24 by ibishak           #+#    #+#             */
+/*   Updated: 2026/10/02 07:56:28 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_split(char **split)
+int	ft_atoi(const char *str)
 {
+	int	result;
+	int	sign;
 	int	i;
 
-	if (!split)
-		return ;
+	result = 0;
+	sign = 1;
 	i = 0;
-	while (split[i])
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		free(split[i]);
+		if (str[i] == '-')
+			sign = -sign;
 		i++;
 	}
-	free(split);
-}
-
-void	free_stack(t_node **stack)
-{
-	t_node	*temp;
-	t_node	*current;
-
-	if (!stack || !*stack)
-		return ;
-	current = *stack;
-	while (current)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		temp = current->next;
-		free(current);
-		current = temp;
+		result = (result * 10) + str[i] - '0';
+		i++;
 	}
-	*stack = NULL;
+	return (sign * result);
 }

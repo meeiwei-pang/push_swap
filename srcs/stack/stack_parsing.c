@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_parsing.c                                          :+:      :+:    :+:   */
+/*   stack_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 14:37:46 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/01 10:42:14 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/02 08:05:00 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ int	ft_atol(const char *s, int *num)
 	return (*num = (int)result, 1);
 }
 
-int	is_duplicate(t_node *list, int n)
+int	is_duplicate(t_node *node, int n)
 {
-	if (!list)
+	if (!node)
 		return (0);
-	while (list)
+	while (node)
 	{
-		if (list->value == n)
+		if (node->value == n)
 			return (1);
-		list = list->next;
+		node = node->next;
 	}
 	return (0);
 }

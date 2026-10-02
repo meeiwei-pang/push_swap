@@ -1,45 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/29 12:25:26 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:05:36 by ibishak          ###   ########.fr       */
+/*   Created: 2026/08/06 14:41:10 by ibishak           #+#    #+#             */
+/*   Updated: 2026/10/02 07:58:41 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_split(char **split)
+void	ft_lstclear(t_node **lst, void (*del)(void *))
 {
-	int	i;
-
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-}
-
-void	free_stack(t_node **stack)
-{
-	t_node	*temp;
 	t_node	*current;
+	t_node	*next_node;
 
-	if (!stack || !*stack)
+	if (!lst || !del)
 		return ;
-	current = *stack;
+	current = *lst;
 	while (current)
 	{
-		temp = current->next;
-		free(current);
-		current = temp;
+		next_node = current->next;
+		ft_lstdelone(current, del);
+		current = next_node;
 	}
-	*stack = NULL;
+	*lst = NULL;
 }
