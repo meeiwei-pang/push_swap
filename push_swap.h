@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 14:38:32 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/01 13:48:06 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/01 23:12:19 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,6 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-typedef struct s_ctx //context: configuration and statistics for the program
-{
-	int	flag;		//which strategy the user choose
-	int	strategy;	//which class the input falls into
-	int	bench;		//whether benchmark is to be printed
-	float	disorder;	//how unsorted the input is
-	int	print;		//whether to print the operations (sa, pb, ra...)
-	int	count[OP_COUNT]; //how many times each operation was used
-	int	total;		//total number of operations
-}	t_ctx;
-
 typedef enum e_op
 {
 	OP_SA,
@@ -68,5 +57,30 @@ typedef enum e_op
 	OP_RRR,
 	OP_COUNT
 }	t_op;
+
+typedef struct s_ctx //context: configuration and statistics for the program
+{
+	int	flag;		//which strategy the user choose
+	int	strategy;	//which class the input falls into
+	int	bench;		//whether benchmark is to be printed
+	float	disorder;	//how unsorted the input is
+	int	print;		//whether to print the operations (sa, pb, ra...)
+	int	count[OP_COUNT]; //how many times each operation was used
+	int	total;		//total number of operations
+}	t_ctx;
+
+/*Operations*/
+void	sa(t_node **a, t_ctx *context);
+void	sb(t_node **b, t_ctx *context);
+void	ss(t_node **a, t_node **b, t_ctx *context);
+void	pa(t_node **a, t_node **b, t_ctx *context);
+void	pb(t_node **a, t_node **b, t_ctx *context);
+void	ra(t_node **a, t_ctx *context);
+void	rb(t_node **b, t_ctx *context);
+void	rr(t_node **a, t_node **b, t_ctx *context);
+void	rra(t_node **a, t_ctx *context);
+void	rrb(t_node **b, t_ctx *context);
+void	rrr(t_node **a, t_node **b, t_ctx *context);
+void	log_op(t_op op, t_ctx *context);
 
 #endif
