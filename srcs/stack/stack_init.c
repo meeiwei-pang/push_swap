@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 11:37:39 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/01 13:52:01 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/09 15:42:37 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ int	flag_detector(char *s, t_ctx *context)
 		context->flag = FLAG_MEDIUM;
 	else if (ft_strncmp(s, "--complex", 10) == 0 
 		&& (context->flag == 3 || context->flag == 0)) //
-		context->flag = FLAG_COMPLEX;
+		context->flag = FLAG_COMPLEX;	
+	else if (ft_strncmp(s, "--adaptive", 11) == 0
+		&& (context->flag == 4 || context->flag == 0))
+		context->flag = FLAG_ADAPTIVE;
 	else
 		return (0); //return 0 if the argument is not a flag
 	return (1); //return 1 if the argument is a flag
