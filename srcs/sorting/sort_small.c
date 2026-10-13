@@ -6,7 +6,7 @@
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 16:05:01 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/13 17:38:40 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/13 18:22:10 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	sort4and5(t_node **a, t_node **b, t_ctx *context)
 	{
 		min_node = find_min(*a);
 		pos = get_pos(*a, min_node);
-		size = ft_lstsize;
+		size = ft_lstsize(*a);
 		while (*a != min_node)
 		{
 			if (pos <= size / 2)
