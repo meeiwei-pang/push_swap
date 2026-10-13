@@ -6,7 +6,7 @@
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 14:38:32 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/13 17:42:23 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/13 18:01:08 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	sort_small(t_node **a, t_node **b, t_ctx *context);
 void	sort_simple(t_node **a, t_node **b, t_ctx *context);
 void	sort_medium(t_node **a, t_node **b, t_ctx *context);
 void	sort_complex(t_node **a, t_node **b, t_ctx *context);
-void	sort_adaptive(t_node **a, t_node **b, float disorder, t_ctx *context, int size);
+void	sort_adaptive(t_node **a, t_node **b, t_ctx *context, int size);
 int	get_distance(t_node *stack, int target);
 t_node	*find_max(t_node *stack);
 t_node	*find_min(t_node *stack);

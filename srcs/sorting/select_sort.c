@@ -6,7 +6,7 @@
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 14:52:08 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/09 18:44:14 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/13 18:04:04 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	select_sort(t_node **a, t_node **b, int size, t_ctx *context)
 		sort_complex(a, b, context);
 	}
 	else
-		sort_adaptive(a, b, context->disorder, context, size);
+		sort_adaptive(a, b, context, size);
 }

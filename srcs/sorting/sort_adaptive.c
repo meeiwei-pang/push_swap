@@ -6,25 +6,25 @@
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 14:02:14 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/09 18:44:19 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/13 18:01:35 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_adaptive(t_node **a, t_node **b, float disorder, t_ctx *context, int size)
+void	sort_adaptive(t_node **a, t_node **b, t_ctx *context, int size)
 {
 	if (size <= 5)
 	{
 		context->strategy = STRAT_SMALL;
 		sort_small(a, b, context);
 	}
-	else if (disorder < 0.2f)
+	else if (context->disorder < 0.2f)
 	{
 		context->strategy = STRAT_SIMPLE;
 		sort_simple(a, b, context);
 	}
-	else if (disorder < 0.5f)
+	else if (context->disorder < 0.5f)
 	{
 		context->strategy = STRAT_MEDIUM;
 		sort_medium(a, b, context);
