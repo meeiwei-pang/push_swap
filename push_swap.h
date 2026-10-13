@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 14:38:32 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/01 23:12:19 by pmeei-we         ###   ########.fr       */
+/*   Updated: 2026/10/13 17:42:23 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ typedef struct s_node
 {
 	int		value;	//number
 	int		index;	//index assigned in stack_analysis
-	int		pos;
 	struct s_node	*next; //doubly linked list
 	struct s_node	*prev;
 }	t_node;
@@ -82,5 +81,34 @@ void	rra(t_node **a, t_ctx *context);
 void	rrb(t_node **b, t_ctx *context);
 void	rrr(t_node **a, t_node **b, t_ctx *context);
 void	log_op(t_op op, t_ctx *context);
+
+/*Parsing*/
+int	init_stack(int argc, char **argv, t_node **a, t_ctx *context);
+int	process_arg(char *arg, t_node **a, t_ctx *context);
+int	validate_arg(char *arg, t_node **a, t_ctx *context);
+int	flag_detector(char *s, t_ctx *context);
+int	ft_atol(const char *s, int *num);
+int	is_duplicate(t_node *node, int n);
+void	assign_index(t_node **stack);
+float	disorder_check(t_node *stack);
+int	is_sorted(t_node *stack);
+void	free_split(char **split);
+void	free_stack(t_node **stack);
+
+/*Sorting*/
+void	select_sort(t_node **a, t_node **b, int size, t_ctx *context);
+void	sort_small(t_node **a, t_node **b, t_ctx *context);
+void	sort_simple(t_node **a, t_node **b, t_ctx *context);
+void	sort_medium(t_node **a, t_node **b, t_ctx *context);
+void	sort_complex(t_node **a, t_node **b, t_ctx *context);
+void	sort_adaptive(t_node **a, t_node **b, float disorder, t_ctx *context, int size);
+int	get_distance(t_node *stack, int target);
+t_node	*find_max(t_node *stack);
+t_node	*find_min(t_node *stack);
+int	get_pos(t_node *stack, t_node *target);
+int	get_max_bits(int size);
+
+/*Benchmark*/
+void	print_bench_stats(t_ctx *context);
 
 #endif

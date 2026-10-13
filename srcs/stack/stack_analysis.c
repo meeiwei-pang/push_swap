@@ -6,7 +6,7 @@
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 12:34:25 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/01 12:05:40 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/13 10:07:34 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 void	assign_index(t_node **stack)
 {
 	int	index;
-	int	pos;
 	t_node	*current;
 	t_node	*temp;
 
 	temp = *stack;
-	pos = 1;
 	while (temp)
 	{
 		index = 0; //initialize index to 0 for each node
@@ -31,7 +29,6 @@ void	assign_index(t_node **stack)
 				index++; //increment index if the current node's value is greater than the other node's value
 			current = current->next;
 		}
-		temp->pos = pos++; //assign the position of the node in the stack
 		temp->index = index; //assign the index of the node based on the number of nodes with smaller values
 		temp = temp->next; //move to the next node in the stack
 	}

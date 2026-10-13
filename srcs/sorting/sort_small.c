@@ -6,13 +6,13 @@
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 16:05:01 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/09 18:43:22 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/13 17:38:40 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_3(t_node **stack, t_ctx *context)
+static void	sort_3(t_node **stack, t_ctx *context)
 {
 	t_node	*max_node;
 
@@ -27,7 +27,7 @@ void	sort_3(t_node **stack, t_ctx *context)
 		sa(stack, context);	                      
 }
 
-void	sort4and5(t_node **a, t_node **b, t_ctx *context)
+static void	sort4and5(t_node **a, t_node **b, t_ctx *context)
 {
 	t_node	*min_node;
 	int	pos;
