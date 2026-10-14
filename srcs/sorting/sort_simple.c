@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 /*if target at top half ra, else rra*/
 static void	bring_to_top(t_node **a, int target, t_ctx *context)

@@ -6,11 +6,11 @@
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 08:27:39 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/01 14:13:46 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/14 17:52:26 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	init_ctx(t_ctx *context)
 {

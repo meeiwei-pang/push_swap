@@ -6,11 +6,11 @@
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 17:14:57 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/09 14:40:59 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/14 17:47:43 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 void	sort_complex(t_node **a, t_node **b, t_ctx *context)
 {

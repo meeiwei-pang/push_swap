@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 /*ptr relinking, swap first 2 nodes only*/
 static void	swap_node(t_node **stack)

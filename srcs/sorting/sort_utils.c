@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 /*t_node *stack is a plain ptr, we only read the list and never change it*/
 int	get_distance(t_node *stack, int target)

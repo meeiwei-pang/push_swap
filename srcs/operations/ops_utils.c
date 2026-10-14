@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 /*record operation, bump the total, print its name, use the same logic*/
 const char	*op_name(t_op op)
@@ -30,5 +30,5 @@ void	log_op(t_op op, t_ctx *context)
 	context->count[op]++;
 	context->total++;
 	if (context->print) /*if true,output the opr by a newline*/
-		ft_putendl_fd((char *)op_names[op], 1); /*1=stdout*/
+		ft_putendl_fd((char *)op_name(op), 1); /*1=stdout*/
 }

@@ -6,11 +6,11 @@
 /*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 12:34:25 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/13 10:07:34 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/14 17:50:07 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 void	assign_index(t_node **stack)
 {
