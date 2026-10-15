@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 11:37:39 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/14 17:50:14 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/15 15:43:23 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int	validate_arg(char *arg, t_node **a, t_ctx *context)
 		return (1);
 	if (!ft_atol(arg, &value) || is_duplicate(*a, value)) //check if arg is a valid integer and not duplicate
 		return (0);
-	new_node = ft_lstnew(value); //create a new node with the value
+	new_node = stack_new(value); //create a new node with the value
 	if (!new_node) //if malloc fails, quit
 		return (0);
-	ft_lstadd_back(a, new_node); //add the new node to the end of stack
+	add_back(a, new_node); //add the new node to the end of stack
 	return (1);
 }
 

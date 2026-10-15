@@ -6,7 +6,7 @@
 #    By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/14 12:07:53 by ibishak           #+#    #+#              #
-#    Updated: 2026/10/15 14:40:18 by pmeei-we         ###   ########.fr        #
+#    Updated: 2026/10/15 15:10:22 by pmeei-we         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS = $(SRC_DIR)/operations/ops_push.c \
 	$(SRC_DIR)/sorting/sort_complex.c \
 	$(SRC_DIR)/sorting/sort_utils.c \
 	$(SRC_DIR)/stack/stack_init.c \
+	$(SRC_DIR)/stack/stack_list.c \
 	$(SRC_DIR)/stack/stack_parsing.c \
 	$(SRC_DIR)/stack/stack_analysis.c \
 	$(SRC_DIR)/stack/stack_utils.c \

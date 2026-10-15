@@ -6,7 +6,7 @@
 /*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 10:12:08 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/15 14:27:38 by pmeei-we         ###   ########.fr       */
+/*   Updated: 2026/10/15 14:45:50 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*node;
 
-	node = malloc(sizeof(t_node));
+	node = malloc(sizeof(t_list));
 	if (!node)
 		return (NULL);
 	node ->content = content;

@@ -48,7 +48,7 @@ static void	print_strategy(t_ctx *context)
 	else
 		ft_putstr_fd("Adaptive", 2);
 	ft_putstr_fd(" / ", 2);
-	ft_putstr_fd(complexity(context->strategy), 2);
+	ft_putstr_fd((char *)complexity(context->strategy), 2);
 	ft_putchar_fd('\n', 2);
 }
 
@@ -58,7 +58,7 @@ static void	print_counts(t_ctx *context, int first, int last)
 	while (first <= last)
 	{
 		ft_putchar_fd(' ', 2);
-		ft_putstr_fd(op_name(first), 2);
+		ft_putstr_fd((char *)op_name(first), 2);
 		ft_putstr_fd(": ", 2);
 		ft_putnbr_fd(context->count[first], 2);
 		first++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 08:27:39 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/14 17:52:26 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/15 15:46:05 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 		return (0); //not considered an error, just exit program
 	assign_index(&a); //replace each value with its sorted rank (0, 1, 2 ...)
 	context.disorder = disorder_check(a); //check percentage of disorder
-	select_sort(&a, &b, ft_lstsize(a), &context); //determine which algorithm to use and execute it
+	select_sort(&a, &b, stack_size(a), &context); //determine which algorithm to use and execute it
 	if (context.bench == 1)
 		print_bench_stats(&context); //print benchmark stats if requested
 	free_stack(&a);

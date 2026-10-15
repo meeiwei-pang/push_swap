@@ -51,7 +51,7 @@ static void	bring_b_to_top(t_node **b, int target, t_ctx *context)
 	int	size;
 
 	distance = get_distance(*b, target);
-	size = ft_lstsize(*b);
+	size = stack_size(*b);
 	if (distance <= size / 2)
 	{
 		while (distance > 0)
@@ -75,11 +75,11 @@ void	sort_medium(t_node **a, t_node **b, t_ctx *context)
 {
 	int	size;
 
-	size = ft_lstsize(*a);
+	size = stack_size(*a);
 	push_chunks(a, b, chunk_size(size), context);
 	while (*b)
 	{
-		bring_b_to_top(b, ft_lstsize(*b) - 1, context);
+		bring_b_to_top(b, stack_size(*b) - 1, context);
 		pa(a, b, context);
 	}
 }

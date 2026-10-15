@@ -6,7 +6,7 @@
 /*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 14:38:32 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/15 14:38:58 by pmeei-we         ###   ########.fr       */
+/*   Updated: 2026/10/15 16:07:32 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,17 @@ void	rr(t_node **a, t_node **b, t_ctx *context);
 void	rra(t_node **a, t_ctx *context);
 void	rrb(t_node **b, t_ctx *context);
 void	rrr(t_node **a, t_node **b, t_ctx *context);
+const char  *op_name(t_op op);
 void	log_op(t_op op, t_ctx *context);
 
 /*Parsing*/
+t_node  *stack_new (int value);
+void	add_back (t_node **stack, t_node *node);
+int	stack_size (t_node *stack);
 int	init_stack(int argc, char **argv, t_node **a, t_ctx *context);
 int	process_arg(char *arg, t_node **a, t_ctx *context);
 int	validate_arg(char *arg, t_node **a, t_ctx *context);
 int	flag_detector(char *s, t_ctx *context);
-static int	read_digits(const char *s, long *result)
 int	ft_atol(const char *s, int *num);
 int	is_duplicate(t_node *node, int n);
 void	assign_index(t_node **stack);

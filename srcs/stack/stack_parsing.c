@@ -6,7 +6,7 @@
 /*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 14:37:46 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/15 14:37:22 by pmeei-we         ###   ########.fr       */
+/*   Updated: 2026/10/15 16:13:31 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static int	read_digits(const char *s, long *result)
 	}
 	return (1);
 }
+
 int	ft_atol(const char *s, int *num)
 {
 	long	result;
@@ -47,7 +48,7 @@ int	ft_atol(const char *s, int *num)
 			sign = -sign;
 		i++;
 	}
-	if (!read_digits(s, &result))
+	if (!read_digits(&s[i], &result))
 		return (0);
 	result = result * sign;
 	if (result > INT_MAX || result < INT_MIN)

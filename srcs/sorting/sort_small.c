@@ -6,7 +6,7 @@
 /*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 16:05:01 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/15 14:30:27 by pmeei-we         ###   ########.fr       */
+/*   Updated: 2026/10/15 15:48:57 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ static void	sort4and5(t_node **a, t_node **b, t_ctx *context)
 
 	if (!a || !*a)
 		return ;
-	while (ft_lstsize(*a) > 3) //loop until stack a has 3 nodes
+	while (stack_size(*a) > 3) //loop until stack a has 3 nodes
 	{
 		min_node = find_min(*a);
 		pos = get_pos(*a, min_node);
-		size = ft_lstsize(*a);
+		size = stack_size(*a);
 		while (*a != min_node)
 		{
 			if (pos <= size / 2)
@@ -58,7 +58,7 @@ void	sort_small(t_node **a, t_node **b, t_ctx *context)
 {
 	int	len;
 
-	len = ft_lstsize(*a);
+	len = stack_size(*a);
 	if (len <= 1 || is_sorted(*a))
 		return ;
 	if (len == 2)

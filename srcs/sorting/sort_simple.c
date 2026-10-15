@@ -19,7 +19,7 @@ static void	bring_to_top(t_node **a, int target, t_ctx *context)
 	int	size;
 
 	distance = get_distance(*a, target);
-	size = ft_lstsize(*a);
+	size = stack_size(*a);
 	if (distance <= size / 2)
 	{
 		while (distance > 0)

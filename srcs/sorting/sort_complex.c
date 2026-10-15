@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_complex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/08 17:14:57 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/14 17:47:43 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/15 16:13:03 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sort_complex(t_node **a, t_node **b, t_ctx *context)
 	int	size;
 	int	max_bits;
 
-	size = ft_lstsize(*a);
+	size = stack_size(*a);
 	max_bits = get_max_bits(size);
 	i = 0;
 	while (i < max_bits)
