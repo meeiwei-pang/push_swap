@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 09:32:00 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/01 10:42:14 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/15 14:27:46 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_node *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int	i;
 

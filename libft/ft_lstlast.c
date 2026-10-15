@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:18:33 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/01 10:42:14 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/15 14:27:06 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_node	*ft_lstlast(t_node *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (NULL);

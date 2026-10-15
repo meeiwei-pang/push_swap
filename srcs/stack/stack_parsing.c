@@ -3,15 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   stack_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 14:37:46 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/14 17:50:17 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/15 14:37:22 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
+static int	read_digits(const char *s, long *result)
+{
+	int	i;
+
+	i = 0;
+	if(s[i] < '0' || s[i] > '9')
+		return (0);
+	while (s[i])
+	{
+		if (s[i] < '0' || s[i] > '9')
+			return (0);
+		*result = (*result * 10) + (s[i] - '0');
+		if (*result > (long)INT_MAX + 1)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 int	ft_atol(const char *s, int *num)
 {
 	long	result;
@@ -29,13 +47,8 @@ int	ft_atol(const char *s, int *num)
 			sign = -sign;
 		i++;
 	}
-	while (s[i])
-	{
-		if (s[i] < '0' || s[i] > '9')
-			return (0);
-		result = (result * 10) + s[i] - '0';
-		i++;
-	}
+	if (!read_digits(s, &result))
+		return (0);
 	result = result * sign;
 	if (result > INT_MAX || result < INT_MIN)
 		return (0);

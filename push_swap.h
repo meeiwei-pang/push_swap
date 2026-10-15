@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 14:38:32 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/13 18:01:08 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/15 14:38:58 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int	init_stack(int argc, char **argv, t_node **a, t_ctx *context);
 int	process_arg(char *arg, t_node **a, t_ctx *context);
 int	validate_arg(char *arg, t_node **a, t_ctx *context);
 int	flag_detector(char *s, t_ctx *context);
+static int	read_digits(const char *s, long *result)
 int	ft_atol(const char *s, int *num);
 int	is_duplicate(t_node *node, int n);
 void	assign_index(t_node **stack);

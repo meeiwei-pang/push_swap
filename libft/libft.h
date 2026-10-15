@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 08:13:54 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/01 10:42:28 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/15 14:25:50 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,20 @@ void	ft_putnbr_fd(int n, int fd);
 
 /*LISTS*/
 
-typedef struct s_node
+typedef struct s_list
 {
 	void			*content;
-	struct s_node	*next;
-}	t_node;
+	struct s_list	*next;
+}	t_list;
 
-t_node	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_node **lst, t_node *new);
-int		ft_lstsize(t_node *lst);
-t_node	*ft_lstlast(t_node *lst);
-void	ft_lstadd_back(t_node **lst, t_node *new);
-void	ft_lstdelone(t_node *lst, void (*del)(void *));
-void	ft_lstclear(t_node **lst, void (*del)(void *));
-void	ft_lstiter(t_node *lst, void (*f)(void *));
-t_node	*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *));
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

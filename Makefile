@@ -3,25 +3,25 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+         #
+#    By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/14 12:07:53 by ibishak           #+#    #+#              #
-#    Updated: 2026/10/14 18:04:23 by ibishak          ###   ########.fr        #
+#    Updated: 2026/10/15 14:40:18 by pmeei-we         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CC = cc 
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -I. -I$(LIBFT_DIR)
 
-LIBFT_DIR = libft 
+LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 HEADERS = push_swap.h
 
 SRC_DIR	= srcs
-OBJ_DIR	= obj 
+OBJ_DIR	= obj
 
 SRCS = $(SRC_DIR)/operations/ops_push.c \
 	$(SRC_DIR)/operations/ops_swap.c \
