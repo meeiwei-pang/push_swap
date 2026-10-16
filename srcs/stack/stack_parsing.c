@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 14:37:46 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/15 16:13:31 by pmeei-we         ###   ########.fr       */
+/*   Updated: 2026/10/16 09:06:06 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_atol(const char *s, int *num)
 	sign = 1;
 	i = 0;
 	while (s[i] == ' ' || (s[i] >= 9 && s[i] <= 13))
-		i++; //do we actually have to check for whitespace? 
+		i++;
 	if (s[i] == '-' || s[i] == '+')
 	{
 		if (s[i] == '-')

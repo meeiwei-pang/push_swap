@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 11:37:39 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/15 15:43:23 by pmeei-we         ###   ########.fr       */
+/*   Updated: 2026/10/16 09:01:55 by ibishak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ int	flag_detector(char *s, t_ctx *context)
 		return (1);
 	}
 	if (ft_strncmp(s, "--simple", 9) == 0 
-		&& (context->flag == 1 || context->flag == 0)) //
+		&& (context->flag == 1 || context->flag == 0))
 		context->flag = FLAG_SIMPLE;
 	else if (ft_strncmp(s, "--medium", 9) == 0 
-		&& (context->flag == 2 || context->flag == 0)) //
+		&& (context->flag == 2 || context->flag == 0))
 		context->flag = FLAG_MEDIUM;
 	else if (ft_strncmp(s, "--complex", 10) == 0 
-		&& (context->flag == 3 || context->flag == 0)) //
+		&& (context->flag == 3 || context->flag == 0))
 		context->flag = FLAG_COMPLEX;	
 	else if (ft_strncmp(s, "--adaptive", 11) == 0
 		&& (context->flag == 4 || context->flag == 0))
@@ -76,7 +76,7 @@ int	init_stack(int argc, char **argv, t_node **a, t_ctx *context)
 {
 	int	i;
 
-	i = 1; // argv[0]=program name, so we start with argv[1]
+	i = 1;
 	while (i < argc)
 	{
 		if (!process_arg(argv[i], a, context)) //process each argument, which may contain multiple numbers separated by spaces

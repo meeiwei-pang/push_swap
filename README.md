@@ -40,7 +40,7 @@ This implementation uses four sorting strategies depending on the number of elem
 
 ### Small Sort
 
-Designed for a small number of elements. It uses carefully selected stack operations to sort the input with as few instructions as possible.
+Hard-coded for inputs with elements not more than 5. It uses carefully selected stack operations to sort the input with as few instructions as possible.
 
 ### Simple Sort — O(n²)
 
@@ -54,11 +54,22 @@ Elements are pushed from Stack A to Stack B according to their chunk ranges. The
 
 Chunk-based sorting helps organize elements systematically and reduce unnecessary stack movements.
 
-### Complex Sort
+### Complex Sort — LSD Radix Sort
 
 Designed for larger inputs, this strategy focuses on reducing the total number of operations through more advanced sorting decisions.
 
 The algorithm considers the available elements and stack operations to determine an efficient sequence of moves.
+
+### Adaptive Sort
+
+Select Simple / Medium / Complex sort algorithm to sort the elements based on the disorder index. For a stack with low disorder (`disorder < 0.2`), it must use the simple sort. For a stack with medium disorder (`0.2 ≤ disorder < 0.5`), it must use the medium sort. Lastly,for a stack with high disorder (`disorder ≥ 0.5`) it must use the complex sort.
+
+### Complexity (operations, worst case)
+| Regime  | Time       | Extra space |
+|---------|------------|-------------|
+| Simple  | O(n²)      | O(1)        |
+| Medium  | O(n√n)     | O(1)        |
+| Complex | O(n log n) | O(n)        |
 
 ## Instructions
 
@@ -115,16 +126,59 @@ A successful result should indicate that the stack is sorted correctly and Stack
 
 ## Algorithm
 
-The program begins by parsing and validating the input integers before initializing the stacks.
+The program begins by parsing and validating the input integers before initializing the stacks. Values are replaced by their rank (`index`, 0..n-1). This lets the algorithms work on small consecutive integers regardless of the input values.
 
 After initialization, it selects a sorting strategy based on the number of elements.
 
-- **Small sort** handles small inputs using optimized operation sequences.
-- **Simple sort** uses a straightforward approach for smaller inputs.
-- **Medium sort** groups elements into chunks before transferring them between stacks.
-- **Complex sort** uses a more advanced strategy to optimize the sorting process for larger inputs.
+### Simple: selection sort
+Technique: repeat n times: find the minimum of A, rotate A (ra or rra, whichever is shorter) to bring it to the top, pb. When A is empty, pa everything back. 
+Why it suits low disorder: when the input is nearly sorted, the minimum is always close to the top, so most rounds cost only a few operations.
+
+### Medium: chunk-based sort
+Technique: split the index range into k chunks (k ~ sqrt(n)). Push chunk by chunk from A to B, rotating A to reach each element of the current chunk. Then bring elements back with pa, always choosing the largest remaining index in B, using rb or rrb (shorter direction).
+
+### Complex: radix sort (LSD, binary)
+Technique: for each bit b from 0 to ⌈log₂ n⌉, go through A once: if bit b of the index is 0, pb, else ra. Then pa everything back. The process is stable, so after the last bit A is sorted.
+
 
 Each operation is evaluated in terms of its effect on the stack and its contribution to the total instruction count. The objective is to produce a correct sorting sequence while minimizing unnecessary operations.
+
+## Project Structure
+
+```
+push_swap/
+├── Makefile                    all / clean / fclean / re / $(NAME)
+├── README.md
+├── push_swap.h                 types (t_node, t_ctx, t_op), macros, prototypes
+│
+├── main.c                      argv handling and main flow, init_ctx (resets flag/complexity/bench/disorder/counters)
+│
+├── input handling
+│   ├── stack_init.c            process_arg, validate_arg, flag_detector
+│   ├── stack_parsing.c         ft_atol, is_duplicate
+│   ├── stack_analysis.c        assign_index, disorder_check, is_sorted
+│   ├── stack_list.c            stack_new, add_back, stack_size
+│   └── stack_utils.c           free_split, free_stack
+│
+├── operations
+│   ├── ops_swap.c              sa, sb, ss
+│   ├── ops_push.c              pa, pb
+│   ├── ops_rotate.c            ra, rb, rr
+│   ├── ops_rotate_reverse.c    rra, rrb, rrr
+│   └── op_utils.c              op_name, log_op
+│
+├── benchmark (--bench)
+│   └── bench_stats.c           print_bench_stats
+│
+└── sorting
+    ├── select_sort.c           reads op->flag, sets op->complexity
+    ├── sort_small.c            hard-coded sort for 2..5 elements
+    ├── sort_simple.c           Simple   — selection sort            O(n²)
+    ├── sort_medium.c           Medium   — √n chunk sort             O(n·√n)
+    ├── sort_complex.c          Complex  — LSD radix sort            O(n·log n)
+    ├── sort_adaptive.c         Adaptive — picks one by disorder index
+    └── sort_utils.c            get_distance, find_max, find_min, get_pos, get_max_bits
+```
 
 ## AI Usage
 
@@ -138,3 +192,9 @@ All code was written by the authors. AI was used for explanation, code review, a
 - Linux manual pages: `man 3 malloc`, `man 3 free`.
 - C programming reference: [cppreference](https://en.cppreference.com/w/c.html).
 - GNU Make manual: [https://www.gnu.org/software/make/manual/](https://www.gnu.org/software/make/manual/).
+- https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
+
+## Contributions
+
+- pmeei-we — operations, benchmark, simple and medium algorithm, README
+- ibishak — stack, complex algorithm, Makefile, README
