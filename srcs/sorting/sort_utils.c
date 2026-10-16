@@ -82,7 +82,7 @@ int	get_max_bits(int size)
 		return (0);
 	max_bits = 0;
 	max_num = size - 1;
-	while ((max_num >> max_bits) > 0) // '>>' bitwise right shift operator
+	while ((max_num >> max_bits) > 0)
 		max_bits++;
 	return (max_bits);
 }

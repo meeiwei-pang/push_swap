@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 11:41:21 by ibishak           #+#    #+#             */
-/*   Updated: 2026/09/28 10:39:44 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/16 12:16:13 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memmove(dst + len1, s2, len2 + 1);
 	return (dst);
 }
-

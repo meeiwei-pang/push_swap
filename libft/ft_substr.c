@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 11:11:43 by ibishak           #+#    #+#             */
-/*   Updated: 2026/09/28 10:38:32 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/16 12:16:32 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	dst[i] = '\0';
 	return (dst);
 }
-

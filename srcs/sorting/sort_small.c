@@ -6,7 +6,7 @@
 /*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 16:05:01 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/15 15:48:57 by pmeei-we         ###   ########.fr       */
+/*   Updated: 2026/10/16 12:34:13 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ static void	sort_3(t_node **stack, t_ctx *context)
 	t_node	*max_node;
 
 	if (!stack || !*stack)
-		return;
+		return ;
 	max_node = find_max(*stack);
-	if (max_node == *stack) //if max_node is the 1st node
+	if (max_node == *stack)
 		ra(stack, context);
-	else if (max_node == (*stack)->next) //if max_node is the 2nd node
+	else if (max_node == (*stack)->next)
 		rra(stack, context);
-	if ((*stack)->value > (*stack)->next->value) //compare 1st node and 2nd node one last time
-		sa(stack, context);	                      
+	if ((*stack)->value > (*stack)->next->value)
+		sa(stack, context);
 }
 
 static void	sort4and5(t_node **a, t_node **b, t_ctx *context)
 {
 	t_node	*min_node;
-	int	pos;
-	int	size;
+	int		pos;
+	int		size;
 
 	if (!a || !*a)
 		return ;
-	while (stack_size(*a) > 3) //loop until stack a has 3 nodes
+	while (stack_size(*a) > 3)
 	{
 		min_node = find_min(*a);
 		pos = get_pos(*a, min_node);
@@ -50,7 +50,7 @@ static void	sort4and5(t_node **a, t_node **b, t_ctx *context)
 		pb(a, b, context);
 	}
 	sort_3(a, context);
-	while (*b) //push nodes in b back to a 
+	while (*b)
 		pa(a, b, context);
 }
 

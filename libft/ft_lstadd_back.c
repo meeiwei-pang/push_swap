@@ -6,7 +6,7 @@
 /*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/06 10:21:19 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/15 14:26:13 by pmeei-we         ###   ########.fr       */
+/*   Updated: 2026/10/16 12:15:13 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		last = last->next;
 	last->next = new;
 }
-

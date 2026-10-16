@@ -32,7 +32,7 @@ static void	swap_node(t_node **stack)
 /*swap the first 2 elements at the top of stack a <2*/
 void	sa(t_node **a, t_ctx *context)
 {
-	if (!*a || !(*a)->next) /*check if stack is empty or only one node*/
+	if (!*a || !(*a)->next)
 		return ;
 	swap_node(a);
 	log_op(OP_SA, context);

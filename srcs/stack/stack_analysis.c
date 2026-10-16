@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_analysis.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 12:34:25 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/14 17:50:07 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/16 12:34:54 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 void	assign_index(t_node **stack)
 {
-	int	index;
+	int		index;
 	t_node	*current;
 	t_node	*temp;
 
 	temp = *stack;
 	while (temp)
 	{
-		index = 0; //initialize index to 0 for each node
+		index = 0;
 		current = *stack;
 		while (current)
 		{
-			if (temp->value > current->value) //compare the value of the current node with all other nodes
-				index++; //increment index if the current node's value is greater than the other node's value
+			if (temp->value > current->value)
+				index++;
 			current = current->next;
 		}
-		temp->index = index; //assign the index of the node based on the number of nodes with smaller values
-		temp = temp->next; //move to the next node in the stack
+		temp->index = index;
+		temp = temp->next;
 	}
 }
 
 float	disorder_check(t_node *stack)
 {
-	int	mistakes;
-	int	total_pairs;
+	int		mistakes;
+	int		total_pairs;
 	t_node	*current;
 	t_node	*next_node;
 
@@ -49,27 +49,27 @@ float	disorder_check(t_node *stack)
 		next_node = current->next;
 		while (next_node)
 		{
-			total_pairs++; 
-			if (current->index > next_node->index) //check if the current node's index is greater than the next node's index
-				mistakes++; //each time the current node's index is greater than the next node's index, the pair counts as a mistake
+			total_pairs++;
+			if (current->index > next_node->index)
+				mistakes++;
 			next_node = next_node->next;
 		}
 		current = current->next;
 	}
-	if (total_pairs == 0) //to avoid division by zero
+	if (total_pairs == 0)
 		return (0.0f);
-	return ((float)mistakes / (float)total_pairs); //the more mistakes you have, the closer the disorder is to 1. 
+	return ((float)mistakes / (float)total_pairs);
 }
 
 int	is_sorted(t_node *stack)
 {
-	if (!stack || !stack->next) //if stack is empty or has only one element, it is sorted
+	if (!stack || !stack->next)
 		return (1);
 	while (stack->next)
 	{
 		if (stack->index > stack->next->index)
-			return (0); //if the current node's index is greater than the next node's index, the stack is not sorted
+			return (0);
 		stack = stack->next;
 	}
-	return (1); //if we reach here, the stack is sorted
+	return (1);
 }

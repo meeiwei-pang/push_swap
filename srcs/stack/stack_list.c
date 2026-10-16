@@ -13,7 +13,7 @@
 #include "../../push_swap.h"
 
 /*create stack node*/
-t_node  *stack_new (int value)
+t_node	*stack_new(int value)
 {
 	t_node	*node;
 
@@ -28,7 +28,6 @@ t_node  *stack_new (int value)
 }
 
 /*append a node to the end of a doubly linked lst*/
-
 void	add_back(t_node **stack, t_node *node)
 {
 	t_node	*last;
@@ -50,9 +49,8 @@ void	add_back(t_node **stack, t_node *node)
 	node->next = NULL;
 }
 
-
 /*count the nodes*/
-int	stack_size (t_node *stack)
+int	stack_size(t_node *stack)
 {
 	int	size;
 

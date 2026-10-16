@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 14:33:49 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:02:53 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/16 12:16:25 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	result[end - start] = '\0';
 	return (result);
 }
-

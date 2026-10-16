@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 17:06:51 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/02 08:02:34 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/16 12:16:19 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	result[len] = '\0';
 	return (result);
 }
-

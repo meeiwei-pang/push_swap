@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/24 14:37:46 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/16 09:06:06 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/16 13:07:21 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	read_digits(const char *s, long *result)
 	int	i;
 
 	i = 0;
-	if(s[i] < '0' || s[i] > '9')
+	if (s[i] < '0' || s[i] > '9')
 		return (0);
 	while (s[i])
 	{
@@ -35,7 +35,7 @@ int	ft_atol(const char *s, int *num)
 {
 	long	result;
 	long	sign;
-	int	i;
+	int		i;
 
 	result = 0;
 	sign = 1;

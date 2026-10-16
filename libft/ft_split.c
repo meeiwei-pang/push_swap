@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ibishak <ibishak@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: pmeei-we <pmeei-we@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/04 10:59:40 by ibishak           #+#    #+#             */
-/*   Updated: 2026/10/01 11:46:06 by ibishak          ###   ########.fr       */
+/*   Updated: 2026/10/16 12:15:49 by pmeei-we         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,3 @@ char	**ft_split(char const *s, char c)
 	array = fill_in(array, s, c);
 	return (array);
 }
-
